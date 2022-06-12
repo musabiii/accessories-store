@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import PhoneOption from "./phone-option";
 
 //TODO: загрузить изображения через импорт
 
@@ -30,7 +31,7 @@ export default function Header() {
       <div className="logo">
         <Link to="/">QPICK</Link>
       </div>
-      <div className="model">Выбрать модель телефона</div>
+      <PhoneOption/>
       <div className="right-box">
         <div className="favorites">
           <Link to="/favorites">
