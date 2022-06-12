@@ -1,27 +1,25 @@
-import React, { MouseEvent } from 'react';
-import { supabase } from './utils/sapabaseClient';
+import React from 'react';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/header';
+import Main from './pages/main';
+import styled from 'styled-components';
+
+const AppBlock = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+`
 
 function App() {
 
-  const handleClick = (e:MouseEvent<HTMLButtonElement>)=> {
-    e.preventDefault();
-
-    console.log('click');
-    getSupabase();
-  }
-
-  async function getSupabase() {
-    let { data: accessories, error } = await supabase
-    .from('accessories')
-    console.log(accessories);
-  }
 
   return (
-    <div className="App">
-      Hello
-      <button onClick={handleClick}>sclick</button>
-    </div>
+    <AppBlock className="App">
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Main/>}/>
+      </Routes>
+    </AppBlock>
   );
 }
 
